@@ -1,0 +1,19 @@
+.container {
+  border: solid 2px red;
+  gap: 1rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5vw;
+  height: 10vh;
+}
+
+.container > * {
+  border: solid 2px blue;
+}
+
+.navMenu {
+  border: solid 1px purple;
+  transform: translateX(-15rem);
+}
