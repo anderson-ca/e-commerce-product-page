@@ -15,5 +15,15 @@
 
 .navMenu {
   border: solid 1px purple;
-  transform: translateX(-15rem);
 }
+
+.openMobileNavMenu {
+    transform: translateX(50px);
+    /* background-color: brown; */
+}
+
+.closeMobileNavMenu {
+    transform: translateX(0);
+    /* background-color: brown; */
+}
+/* mobile nav menu animation */

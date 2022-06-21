@@ -2,7 +2,7 @@ import styles from '../styles/Layout.module.css';
 
 const Layout = ({children}) => {
   return (
-    <div classNmae={StyleSheet.container}>
+    <div className={styles.container}>
         {children}
     </div>
   )

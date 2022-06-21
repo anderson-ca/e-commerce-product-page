@@ -1,27 +1,50 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import styles from "../styles//NavBar.module.css";
 
 const NavBar = () => {
   let [mobileMenu, setMobileMenu] = useState(null);
+  let menuRef = useRef(null);
 
+  useEffect(() => {
+    if (mobileMenu !== null) {
+      if (mobileMenu) {
+        console.log("is menu openxxx -> ", mobileMenu);
+        menuRef.current.classList.add(`${styles.openMobileNavMenu}`);
+        menuRef.current.classList.remove(`${styles.closeMobileNavMenu}`);
+        console.log(menuRef.current.className);
+      } else {
+        console.log("is menu openyyy -> ", mobileMenu);
+        menuRef.current.classList.add(`${styles.closeMobileNavMenu}`);
+        menuRef.current.classList.remove(`${styles.openMobileNavMenu}`);
 
-  const setMobileNavState = () => {
-      
-  }
+        console.log(menuRef.current.className);
+      }
+    }
+  }, [mobileMenu]);
 
   return (
     <div className={styles.container}>
       <div
-        onClick={() => console.log("boom")}
+        onClick={() => setMobileMenu(!mobileMenu)}
         className={`${styles.imageWrapper}`}
       >
-        <Image
-          className={`${styles.image}`}
-          src="/icon-menu.svg"
-          height={"18rem"}
-          width={"15rem"}
-        />
+        {/* conditional rendering */}
+        {mobileMenu ? (
+          <Image
+            className={`${styles.image}`}
+            src="/icon-close.svg"
+            height={"18rem"}
+            width={"15rem"}
+          />
+        ) : (
+          <Image
+            className={`${styles.image}`}
+            src="/icon-menu.svg"
+            height={"18rem"}
+            width={"15rem"}
+          />
+        )}
       </div>
       <div className={`${styles.imageWrapper}`}>
         <Image
@@ -31,7 +54,7 @@ const NavBar = () => {
           width={"100rem"}
         />
       </div>
-      <ul className={`${styles.navMenu}`}>
+      <ul ref={menuRef} className={`${styles.navMenu}`}>
         <li className={`${styles.navItem}`}>Collections</li>
         <li className={`${styles.navItem}`}>Men</li>
         <li className={`${styles.navItem}`}>Women</li>
