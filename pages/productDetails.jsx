@@ -1,6 +1,6 @@
+import styles from "../styles/ProductDetails.module.css";
 
-
-const ProductDisplay = () => {
+const productDetails = () => {
   return (
     <div className={styles.container}>
       Collections Men Women About Contact Sneaker Company Fall Limited Edition
@@ -18,4 +18,4 @@ const ProductDisplay = () => {
   );
 };
 
-export default ProductDisplay;
+export default productDetails;

@@ -4,6 +4,7 @@ import NavBar from "../components/NavBar";
 import ProductDisplay from "../components/ProductDisplay";
 
 export default function Home() {
+
   return (
     <div className={styles.container}>
       <Head>
